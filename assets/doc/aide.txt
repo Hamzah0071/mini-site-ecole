@@ -1,0 +1,240 @@
+Voici un **résumé clair et direct** d’un cours **PHP : “Réalisez un site web dynamique avec PHP”**, **du premier script PHP jusqu’au stockage en base de données**.
+
+---
+
+## 1️⃣ Qu’est-ce que PHP
+
+* PHP est un **langage côté serveur**
+* Il sert à rendre un site **dynamique** (contenu qui change)
+* PHP génère du **HTML** envoyé au navigateur
+
+---
+
+## 2️⃣ Premier script PHP
+
+Un fichier PHP :
+
+```php
+<?php
+echo "Bonjour le monde";
+?>
+```
+
+Points clés :
+
+* Un fichier PHP se termine par `.php`
+* Le code PHP est entre `<?php ?>`
+* `echo` affiche du contenu
+
+---
+
+## 3️⃣ Variables et types
+
+```php
+$nom = "Ali";
+$age = 16;
+```
+
+Types principaux :
+
+* string (texte)
+* int (entier)
+* float (nombre)
+* bool (true / false)
+* array (tableau)
+
+PHP est **faiblement typé** (pas besoin de déclarer le type).
+
+---
+
+## 4️⃣ Conditions
+
+```php
+if ($age >= 18) {
+    echo "Majeur";
+} else {
+    echo "Mineur";
+}
+```
+
+Opérateurs :
+
+* `==`, `===`
+* `!=`
+* `< > <= >=`
+* `&&` (ET), `||` (OU)
+
+---
+
+## 5️⃣ Boucles
+
+```php
+for ($i = 0; $i < 5; $i++) {
+    echo $i;
+}
+```
+
+Autres boucles :
+
+* `while`
+* `foreach` (très utilisée avec les tableaux)
+
+---
+
+## 6️⃣ Tableaux
+
+```php
+$eleves = ["Ali", "Sara", "Omar"];
+```
+
+Tableau associatif :
+
+```php
+$user = [
+    "nom" => "Ali",
+    "role" => "admin"
+];
+```
+
+---
+
+## 7️⃣ Fonctions
+
+```php
+function direBonjour($nom) {
+    return "Bonjour $nom";
+}
+```
+
+Permet de :
+
+* Réutiliser du code
+* Structurer le projet
+
+---
+
+## 8️⃣ Inclusion de fichiers
+
+```php
+include "header.php";
+require "db.php";
+```
+
+* `include` : avertissement si erreur
+* `require` : arrêt du script si erreur
+
+Utilisé pour :
+
+* header / footer
+* connexion à la base de données
+
+---
+
+## 9️⃣ Formulaires HTML + PHP
+
+HTML :
+
+```html
+<form method="post">
+    <input name="nom">
+    <button>Envoyer</button>
+</form>
+```
+
+PHP :
+
+```php
+$nom = $_POST['nom'] ?? '';
+```
+
+Méthodes :
+
+* `GET` → visible dans l’URL
+* `POST` → sécurisé pour les données sensibles
+
+---
+
+## 🔟 Sécurisation de base
+
+* `htmlspecialchars()` → éviter XSS
+* Vérifier si les champs existent
+* Ne jamais faire confiance à l’utilisateur
+
+---
+
+## 1️⃣1️⃣ Sessions
+
+```php
+session_start();
+$_SESSION['user'] = "Ali";
+```
+
+Utilisé pour :
+
+* Connexion utilisateur
+* Rôles (admin, élève, prof)
+
+---
+
+## 1️⃣2️⃣ Connexion à une base de données (PDO)
+
+```php
+$pdo = new PDO(
+    "mysql:host=localhost;dbname=site;charset=utf8",
+    "root",
+    ""
+);
+```
+
+PDO permet :
+
+* Sécurité
+* Compatibilité
+* Requêtes préparées
+
+---
+
+## 1️⃣3️⃣ Insérer des données (INSERT)
+
+```php
+$sql = "INSERT INTO users (nom, email) VALUES (?, ?)";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$nom, $email]);
+```
+
+➡️ **Obligatoire** pour éviter les injections SQL
+
+---
+
+## 1️⃣4️⃣ Lire des données (SELECT)
+
+```php
+$sql = "SELECT * FROM users";
+$stmt = $pdo->query($sql);
+$users = $stmt->fetchAll();
+```
+
+---
+
+## 1️⃣5️⃣ Mise à jour et suppression
+
+```php
+UPDATE users SET nom=? WHERE id=?
+DELETE FROM users WHERE id=?
+```
+
+---
+
+## 1️⃣6️⃣ Structure simple d’un projet PHP
+
+```
+/public
+/include
+    header.php
+    footer.php
+/db
+    db.php
+/admin
+/eleves
+```
+

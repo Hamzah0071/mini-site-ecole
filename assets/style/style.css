@@ -1,0 +1,188 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f5f5f5;
+    min-height: 100vh;
+    padding: 30px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 460px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1.8rem;
+    color: #1f2937;
+    font-size: 1.9rem;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #374151;
+    font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Support intl-tel-input */
+.iti {
+    width: 100%;
+}
+.iti__flag-container,
+.iti__selected-flag {
+    padding: 0 6px !important;
+}
+.iti input {
+    padding-left: 50px !important; /* espace pour le drapeau */
+}
+
+/* Boutons */
+.btn {
+    width: 100%;
+    padding: 14px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin: 0.5rem 0;
+}
+
+.btn:hover {
+    background: #1d4ed8;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+/* Bouton secondaire (lien vers connexion) */
+.btn-secondary {
+    background: #6b7280;
+}
+
+.btn-secondary:hover {
+    background: #4b5563;
+}
+
+/* Mot de passe */
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 48px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #6b7280;
+    font-size: 1.1rem;
+}
+
+.toggle-password:hover {
+    color: #374151;
+}
+
+/* Checkbox */
+.checkbox-field {
+    margin: 1.6rem 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-field input {
+    width: 18px;
+    height: 18px;
+    accent-color: #2563eb;
+}
+
+.checkbox-field a {
+    color: #2563eb;
+    text-decoration: underline;
+    font-size: 0.92rem;
+}
+
+.checkbox-field label {
+    margin: 0;
+    font-size: 0.94rem;
+    color: #4b5563;
+}
+
+/* Messages */
+.error-message,
+p[style*="color:red"],
+p[style*="color:green"] {
+    font-size: 0.9rem;
+    margin: 0.8rem 0;
+    text-align: center;
+}
+
+p[style*="color:red"]   { color: #dc2626 !important; }
+p[style*="color:green"] { color: #16a34a !important; }
+
+/* Lien déjà inscrit */
+.form-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    color: #4b5563;
+}
+
+.form-footer a {
+    color: #2563eb;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
